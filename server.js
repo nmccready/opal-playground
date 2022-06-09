@@ -7,10 +7,10 @@ const jsonParserMiddleware = bodyParser.json();
 const extAuthzMiddleware = extAuthz.authorize((req) => ({
   port: 8181,
   hostname: 'http://localhost',
-  policyPath: '/authz/allow',
+  policyPath: '/app/rbac/allow',
 
   enable: req.method === 'GET',
-  enrich: { serviceId: 1 },
+  enrich: { user: req.params.userId },
 }));
 
 // Add the extAuthzMiddleware here to apply to all requests.
@@ -21,8 +21,8 @@ app.use(jsonParserMiddleware);
 // Applying the middleware per route makes the route parameters "region" and "userId"
 // available to the authz policy as input.
 app.get(
-  '/region/:region/users/:userId',
-  extAuthz.permissions('user.read'),
+  '/users/:userId/cats',
+  extAuthz.permissions('user_is_admin'),
   extAuthzMiddleware,
   (req, res) => {
     res.send('allowed');
