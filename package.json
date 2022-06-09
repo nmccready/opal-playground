@@ -1,0 +1,25 @@
+{
+  "name": "@znemz/opal-playground",
+  "version": "0.0.1",
+  "description": "opal permissions to test different rest api frameworks",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Nicholas McCready",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-config-prettier": "~8.5.0",
+    "eslint-plugin-prettier": "~4.0.0",
+    "prettier": "~2.6.2"
+  },
+  "dependencies": {
+    "@build-security/opa-express-middleware": "^0.0.3",
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1"
+  }
+}
