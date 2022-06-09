@@ -87,3 +87,7 @@ user_is_granted[permission] {
 	# `permission` assigned a single permission from the permissions list for 'role'...
 	permission := data.role_permissions[role][j]
 }
+
+user_exist {
+	data.users[input.user]
+}
